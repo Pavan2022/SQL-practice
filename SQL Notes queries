@@ -1,0 +1,1141 @@
+Session=1
+===========
+
+what is database = A collection of data and holds this data in the form tables.
+
+what is table = Holds the data in the form of rows and columns.
+
+It is similar to spreadsheet.
+
+The database provides us the capability to access and manipulate this data.
+
+2 types of Databases:
+=====================
+1.Relational Database= Rows & Columns and also the tables have relation between them.(MySQL)
+
+2.No-SQL Database= Key value, Document, Graph
+
+SQL= Structured Query  Language and is used to query a Relational Data Base.
+====
+
+MySQL Vs SQL
+
+Installation
+--------------
+Goorm IDE online compiler
+
+mysql-ctl cli;
+
+show databases;
+
+CREATE DATABASE trendytech;
+
+USE  = for entering into the database table. (Use database_name.)
+====
+
+SELECT = to check in which database you are in. select database();
+======
+
+int for numeric
+-----------------
+varchar for string : holds upto 255 charactars
+------------------
+
+CREATE TABLE employee
+(
+name varchar(50),
+age INT,
+salary INT
+);
+
+show tables: display the list of tables.
+-----------
+
+describe:  gives the structure of the table.(desc)
+---------
+
+
+To create table in trendytech database.
+
+CREATE TABLE trendytech.employee
+(
+name varchar(50),
+age INT,
+salary INT
+);
+=======================================================================================================================================================================
+Learn SQL in write way - 2
+============================
+
+CRUD operaations
+================
+
+create - insert statements
+Read - select statements
+Update - update statements
+Drop - delete statements
+
+Creation of Tables and Insert statements.
+
+employee table
+
+you prefer to hire from banglore loaction.
+
+
+ Create table employee(
+ Firstname varchar(20),
+ Middlename varchar(20),
+ Lastname varchar(20),
+ age int,
+ salary int,
+ location varchar(20)
+ );
+
+To check data present in the table we use( Select * from employee;) select command
+--------------------------------------------------------------------------------------
+
+
+INSERT INTO employee ( firstname, middlename, lastname, age, salary,location) values('Pavan','Kumar','Chowdary','24','10000','Banglore'),('Pradeep','Kumar','Chowdary','24','10000','Banglore'),('kiran','Chowdary','26','20000','Banglore), ('kiran','Chowdary','26','20000','Banglore'),("kira'n",'Chowdary','26','20000','Banglore');
+
+
+INSERT INTO employee( firstname, lastname, age, salary,location) values('kira"n','Chowdary','26','20000','Banglore');
+
+
+
+
+INSERT INTO employee( firstname, lastname, age, salary,location) values('kira\'n','Chowdary','26','20000','Banglore');
+
+
+
+
+INSERT INTO employee( firstname, middlename, lastname, age, salary,location) values('Pavan','Kumar','Chowdary','24','10000','Banglore'), ('Pradeep','Kumar','Naidu','28','30000','Banglore');
+
+
+
+INSERT INTO employee( firstname, middlename, lastname, age, salary,location) values('Pavan','Kumar','Chowdary','twenty four','10000','Banglore');
+
+
+
+NULL and NOT NULL :
+=================
+
+INSERT INTO employee( middlename, lastname, age, salary,location) values('Kumar','Chowdary','24','10000','Banglore');
+
+
+ Create table employee(
+ Firstname varchar(20) NOT NULL,
+ Middlename varchar(20),
+ Lastname varchar(20) NOT NULL,
+ age int NOT NULL,
+ salary int NOT NULL,
+ location varchar(20) NOT NULL
+ );
+
+
+Default Values:
+==============
+
+
+ Create table employee(
+ Firstname varchar(20) NOT NULL,
+ Middlename varchar(20),
+ Lastname varchar(20) NOT NULL,
+ age int NOT NULL,
+ salary int NOT NULL,
+ location varchar(20) DEFAULT 'banglore'
+ );
+
+
+INSERT INTO employee( firstname, lastname, age, salary) values('kiran','Chowdary','26','20000');
+
+INSERT INTO employee( firstname, lastname, age, salary,location) values('kiran','Chowdary','26','20000','Hyderabad');
+
+INSERT INTO employee( firstname, lastname, age, salary,location) values('suresh','Chowdary','26','20000',null);
+
+
+INSERT INTO employee( firstname, lastname, age, salary,location) values('kira'\n','Chowdary','26','20000','Hyderabad');
+
+
+INSERT INTO employee( firstname, lastname, age, salary,location) values("kira'n",'Chowdary','26','20000','Hyderabad');
+
+
+ Create table employee(
+ Firstname varchar(20) NOT NULL,
+ Middlename varchar(20),
+ Lastname varchar(20) NOT NULL,
+ age int NOT NULL,
+ salary int NOT NULL,
+ location varchar(20) NOT NULL DEFAULT 'banglore'
+ );
+
+
+SUMMARY OF Session 2:
+====================
+
+CRUD Operations, Simple inserts, Multiple inserts, Datatype Missmatch,  NULL and NOTNULL
+
+Default values, NOT NULL and DEFAULT , 
+
+
+COMBINATION OF NOT NULL AND DEFAULT:
+====================================
+======================================================================================================================================================================
+
+
+Session -3
+===========
+
+Primary key
+
+Auto Increment Keys
+
+Unique key
+
+Primary key Vs Unique Key
+
+Primary key:
+=============
+
+=>Uniquely identify each record in the table
+---------------------------------------------
+
+
+ Create table employee(
+ ID int,
+ Firstname varchar(20) NOT NULL,
+ Middlename varchar(20),
+ Lastname varchar(20) NOT NULL,
+ age int NOT NULL,
+ salary int NOT NULL,
+ location varchar(20) NOT NULL DEFAULT 'banglore'
+ );
+
+INSERT INTO employee(ID, firstname, lastname, age, salary) values(1,'kiran','Chowdary','26','20000');
+
+
+ Create table employee(
+ ID int PRIMARY KEY,
+ Firstname varchar(20) NOT NULL,
+ Middlename varchar(20),
+ Lastname varchar(20) NOT NULL,
+ age int NOT NULL,
+ salary int NOT NULL,
+ location varchar(20) NOT NULL DEFAULT 'banglore'
+ );
+
+INSERT INTO employee(ID, firstname, lastname, age, salary) values(1,'kiran','Chowdary','26','20000');
+
+=> For a Primary key NULL is not allowed and also repeated values are not allowed.
+----------------------------------------------------------------------------------
+
+INSERT INTO employee(ID, firstname, lastname, age, salary) values(NULL,'kiran','Chowdary','26','20000');
+
+ Create table employee(
+ ID int,
+ Firstname varchar(20) NOT NULL,
+ Middlename varchar(20),
+ Lastname varchar(20) NOT NULL,
+ age int NOT NULL,
+ salary int NOT NULL,
+ location varchar(20) NOT NULL DEFAULT 'banglore',
+ PRIMARY KEY (ID)
+ );
+
+
+=> AUTO INCREMENTS:
+===================
+
+ Create table employee(
+ ID int AUTO_INCREMENT,
+ Firstname varchar(20) NOT NULL,
+ Middlename varchar(20),
+ Lastname varchar(20) NOT NULL,
+ age int NOT NULL,
+ salary int NOT NULL,
+ location varchar(20) NOT NULL DEFAULT 'banglore',
+ PRIMARY KEY (ID)
+ );
+
+
+INSERT INTO employee(firstname, lastname, age, salary) values('kiran','Chowdary','26','20000');
+
+INSERT INTO employee(firstname, lastname, age, salary) values('Kuladeep','Chowdary','26','20000');
+
+=> UNIQUE KEY:
+================
+
+= you can have only one primary key and primary key cannot hold any NULL value.
+= we should use primary key when we have to uniquely identify each record.
+= Unique key can hold NULL 
+example: In MySQL a unique key can hold any number of  NULL values. In some other famous DB's Unique key hold only one NULL.
+= The purpose of Unique Key is to make sure the values do not duplicate.
+= We can have only one Primary key and Multiple Unique keys in a Table.
+------------------------------------------------------------------------------------------------------------------------------
+
+ Create table employee(
+ Firstname varchar(20) NOT NULL,
+ Lastname varchar(20) NOT NULL,
+ age int NOT NULL,
+ primary key(firstname,lastname)
+ );
+
+insert into employee values('pavan','kumar',23);
+
+insert into employee values('pavan','chowdary',23);
+
+insert into employee values('pavan', null,23); (primary key will not allow null value)
+
+
+=> Combination of first name and last name should be unique then only it will work.
+-----------------------------------------------------------------------------------
+
+
+ Create table employee(
+ ID int unique key,
+ Firstname varchar(20),
+ Lastname varchar(20),
+ age int NOT NULL  
+ );
+
+insert into employee values(1,'pavan','kumar', 22);
+
+insert into employee values(null,'pavan','kumar', 22);
+
+
+ Create table employee(
+ ID int,
+ Firstname varchar(20),
+ Lastname varchar(20),
+ age int NOT NULL,
+ unique key (ID,firstname) 
+ );
+=======================================================================================================================================================================
+
+Session - 4
+============
+
+primary key, unique key, auto increment => done
+
+CRUD => create - insert => done
+-------------------------
+
+        Read   - select 
+        Update - updtae
+        Delete - Delete  
+ --------------------------    
+=> Drop previous database and create again  database
+=> Use Database(Trendytech) to be connected to the table and the create a table
+
+
+ Create table employee(
+ ID int PRIMARY KEY,
+ Firstname varchar(20) NOT NULL,
+ Middlename varchar(20),
+ Lastname varchar(20) NOT NULL,
+ age int NOT NULL,
+ salary int NOT NULL,
+ location varchar(20) NOT NULL DEFAULT 'banglore'
+ );
+
+desc employee;
+
+
+INSERT INTO employee(ID, firstname, lastname, age, salary) values(1,'kiran','Chowdary','26','20000');
+
+
+INSERT INTO employee(ID, firstname, lastname, age, salary) values(3,'pradeep','Chowdary','28','40000');
+
+INSERT INTO employee(ID, firstname, lastname, age, salary) values(6,'pavan','Chowdary','29','60000');
+
+INSERT INTO employee(ID, firstname, lastname, age, salary) values(8,'Sunny','Chowdary','29','60000');
+
+-----------------------------------------------------------------------------------------------------------
+Select : Read operation in CRUD
+=======
+=> Selecting all columns = select * from employee;
+
+=> Selecting specific columns = select firstname,lastname from employee;
+
+=> Selecting specific Rows => Select by applying where clause(filter condition) = select * from employee where age > 26;
+
+=> Selecting firstname = select * from employee where firstname = 'pradeep'; => By default it is case insensitive.
+
+=> select * from employee where binary firstname = 'Sunny'; => The statement will match the exact case and is case sensitive.
+
+=> To change the firstname and lastname to name and surname of the column = select firstname as name,lastname as surname from employee;
+
+== Alias
+ select firstname as name,lastname as surname from employee;
+--------------------------------------------------------------------------------------------------------------------------------------------
+UPDATE : 
+=======
+=>update employee set lastname = 'Naidu' where firstname = 'Sunny'; (set is a keyword)=> (to update lastname of a employee.)
+
+=>update employee set location = 'Hyderabad' where firstname = 'pavan'; => (To change the location of candidate.)
+
+=> update employee set location = 'Hyderabad';=> (If we don't specify the particular value to change it will be applicable to whole column)
+
+=> update employee set salary = salary + 5000; =>(To update the increase of salary by 5000)
+
+=> update employee set location = 'Hyderabad' where firstname = 'pavan' and lastname = 'chowdary'; => (to change location using firstname and lastname)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Delete :
+========
+=> delete from employee where id = 3; =>(to delete column using id)
+
+=> delete from employee; => (it will delete all columns from table)
+=======================================================================================================================================================================
+
+Alter Command: It is used to do structural changes of the table .
+==============
+desc employee; => (to see the structure of the table)
+
+=> alter table employee add column jobtitle varchar(50); =>(to add column jobtitle to employee table)
+
+=> alter table employee drop column jobtitle; =>(To delete column from table we use drop command, varchar is not required)
+
+=> alter table employee modify column firstname varchar(30); => (To increase the length of firstname we use modify command)
+
+=> alter table employee drop primary key; =>(To delete primary key from table)
+
+=> alter table employee add primary key (id); =>(To add primary key to particular row)
+=======================================================================================================================================================================
+
+DDL Vs DML :
+============
+
+=> Data Definition Language - Deals with structure of the table.
+ 
+ DDL commands => Create, Alter, Drop , (Truncate )
+
+=> Data Manipulation Language - We deal with the data directly .(changing)
+
+ DML  commands => insert, update, delete 
+
+=> delete from employee; -- DML (it deletes records individually one by one i,e., it has to do within the data itself)
+       
+=> TRUNCATE table employee; -- DDL (also removes all records)
+
+=> Truncate inernally drops the table and recreates it. If we want to delete N no.of records from the table we will use Truncate.
+=======================================================================================================================================================================
+
+Session = 5
+===========
+
+Foreign kry constraint 
+-----------------------
+:Creating table for collecting information to join in trendytech company.
+
+
+=> when we are doing AUTO_INCREMENT we should give primary key and (Unique key)
+
+create table students(
+student_id int AUTO_INCREMENT,
+student_fname varchar(30) NOT NULL,
+student_lname varchar(30) NOT NULL,
+student_mname varchar(30),
+student_email varchar(30) NOT NULL,
+student_phone varchar(15) NOT NULL,
+student_alternate_phone varchar(15),
+enrollmrnt_date TIMESTAMP NOT NULL,
+years_of_exp int NOT NULL,
+student_company varchar(30),
+batch_date varchar(30) NOT NULL,
+source_of_joining varchar(30) NOT NULL,
+location varchar(30) NOT NULL,
+primary key (student_id),
+unique key (student_email)
+);
+
+
+desc students;
+
+Seed Data: Seed data that means initially when you insert something in one go.
+==========
+ 
+Students Table: child table
+==============
+
+create table students(
+student_id int AUTO_INCREMENT,
+student_fname varchar(30) NOT NULL,
+student_lname varchar(30) NOT NULL,
+student_mname varchar(30),
+student_email varchar(30) NOT NULL,
+student_phone varchar(15) NOT NULL,
+student_alternate_phone varchar(15),
+enrollment_date TIMESTAMP ,
+years_of_exp int NOT NULL,
+student_company varchar(30),
+batch_date varchar(30) NOT NULL,
+source_of_joining varchar(30) NOT NULL,
+location varchar(30) NOT NULL,
+primary key (student_id),
+unique key (student_email)
+);
+
+
+insert statements: seed data set-1
+-----------------
+ 
+insert into students (student_fname, student_lname, student_email,student_phone, years_of_exp, student_company, batch_date, source_of_joining, location) values('pavan', 'kumar','pavan@gmail.com', '9087654321', 6, 'walmart', '4-01-2023', 'linkedin', 'banglore');
+
+insert into students (student_fname, student_lname, student_email,student_phone, years_of_exp, student_company, batch_date, source_of_joining, location) values('virat', 'kohli','virat@gmail.com', '9087654356', 18, 'google', '6-02-2022', 'linkedin', 'banglore');
+
+insert into students (student_fname, student_lname, student_email,student_phone, years_of_exp, student_company, batch_date, source_of_joining, location) values('rohit', 'sharma','rohit@gmail.com', '9087654389', 45, 'microsoft', '8-01-2023', 'quora', 'mumbai');
+
+
+insert into students (student_fname, student_lname, student_email,student_phone, years_of_exp, student_company, batch_date, source_of_joining, location) values('anil', 'kumble','anil@gmail.com', '9087654334', 1, 'wipro', '9-01-2023', 'facbook', 'panjab');
+
+insert into students (student_fname, student_lname, student_email,student_phone, years_of_exp, student_company, batch_date, source_of_joining, location) values('kapil', 'dev','kapil@gmail.com', '9087654374', 22, 'infosys', '19-01-2023', 'instagram', 'delhi'),
+
+('brain', 'lara', 'brain@gmail.com', '6789152689', 12, 'tcs','9-03-2022', 'youtube', 'pune'),
+
+('davin', 'bravo', 'davin@gmail.com', '6789152623', 17, 'PWC','9-04-2022', 'facebook', 'hyderabad'),
+
+('david', 'warner', 'david@gmail.com', '6789152691', 39, 'KPMG','9-08-2022', 'google', 'pune');
+
+insert into students (student_fname, student_lname, student_email,student_phone,selected_course, years_of_exp, student_company, batch_date, source_of_joining, location) values('jasprit', 'bumrah','jasprit@gmail.com', '9087654678', 5, 2, 'wipro', '9-01-2023', 'facbook', 'deccan'); 
+=> to opt extra course which is not available in course table .
+
+
+select statement:
+================
+Select * from students;
+
+for skipping few columns=>
+
+select student_id, enrollment_date, selected_course, student_fname, student_email, years_of_exp, student_company, batch_date, source_of_joining, location from students;
+
+
+Course Table: parent table
+============
+
+create table courses(
+course_id int NOT NULL,
+course_name varchar(30) NOT NULL,
+course_duration_months int NOT NULL,
+course_fee int NOT NULL,
+PRIMARY KEY(course_id)
+);
+
+
+Seed data: set-2
+==========
+
+insert into courses values(1, 'bigdata', 6, 50000);
+
+insert into courses values(2, 'web development', 3, 20000);
+
+insert into courses values(3, 'data science', 6, 40000);
+
+insert into courses values(4, 'devops', 1, 10000);
+
+
+drop table students;
+
+To add course column:
+====================
+
+create table students(
+student_id int AUTO_INCREMENT,
+student_fname varchar(30) NOT NULL,
+student_lname varchar(30) NOT NULL,
+student_mname varchar(30),
+student_email varchar(30) NOT NULL,
+student_phone varchar(15) NOT NULL,
+student_alternate_phone varchar(15),
+enrollment_date TIMESTAMP ,# NOT NULL
+selected_course int NOT NULL DEFAULT 1,
+years_of_exp int NOT NULL,
+student_company varchar(30),
+batch_date varchar(30) NOT NULL,
+source_of_joining varchar(30) NOT NULL,
+location varchar(30) NOT NULL,
+primary key (student_id),
+unique key (student_email)
+);
+
+for selected_course: statements
+===================
+insert into students (student_fname, student_lname, student_email,student_phone, selected_course, years_of_exp, student_company, batch_date, source_of_joining, location) values('pavan', 'kumar','pavan@gmail.com', '9087654321', 1, 6, 'walmart', '4-01-2023', 'linkedin', 'banglore');
+
+insert into students (student_fname, student_lname, student_email,student_phone, selected_course, years_of_exp, student_company, batch_date, source_of_joining, location) values('virat', 'kohli','virat@gmail.com', '9087654356', 2, 18, 'google', '6-02-2022', 'linkedin', 'banglore);
+
+
+insert into students (student_fname, student_lname, student_email,student_phone, selected_course, years_of_exp, student_company, batch_date, source_of_joining, location) values('anil', 'kumble','anil@gmail.com', '9087654334', 3, 1, 'wipro', '9-01-2023', 'facbook', 'panjab');
+
+insert into students (student_fname, student_lname, student_email,student_phone, selected_course, years_of_exp, student_company, batch_date, source_of_joining, location) values('kapil', 'dev','kapil@gmail.com', '9087654374', 3, 22, 'infosys', '19-01-2023', 'instagram', 'delhi');
+
+
+insert into students (student_fname, student_lname, student_email,student_phone,selected_course, years_of_exp, student_company, batch_date, source_of_joining, location) values('jasprit', 'bumrah','jasprit@gmail.com', '9087654678', 5, 2, 'wipro', '9-01-2023', 'facbook', 'deccan'); 
+
+
+(insert statements from seed data set-1)
+-------------------------------------
+
+drop table students;
+
+create table students(
+student_id int AUTO_INCREMENT,
+student_fname varchar(30) NOT NULL,
+student_lname varchar(30) NOT NULL,
+student_mname varchar(30),
+student_email varchar(30) NOT NULL,
+student_phone varchar(15) NOT NULL,
+student_alternate_phone varchar(15),
+enrollment_date TIMESTAMP ,# NOT NULL
+selected_course int NOT NULL DEFAULT 1,
+years_of_exp int NOT NULL,
+student_company varchar(30),
+batch_date varchar(30) NOT NULL,
+source_of_joining varchar(30) NOT NULL,
+location varchar(30) NOT NULL,
+primary key (student_id),
+unique key (student_email),
+FOREIGN KEY(selected_course) REFERENCES courses(course_id)
+);
+
+parent - courses
+child - students
+
+=>delete from course where course_id = 4; (if we want to delete the course ID which was selected by student cannot be deleted because of foreign key constraint)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Theoritical explanation:
+----------------------
+=> The foreign key constraint is used to prevent actions that would destroy links between two tables.
+=> A foreign key is a field in one table that refers to the primary key in another table.
+=> selected_course is a foreign key in students table which refers to course_id (primary key) in courses table.
+=> The table with the foreign key is called the child table, the table with primary key is called the parent or referenced table.
+
+(NOT NULL, UNIQUE KEY, PRIMARY KEY, FOREIGN KEY, (CHECK CONSTRAINT =not supported in mysql)) We discussed.
+
+=> Constraints are used to limit the type of data that can go into a table.
+=> This ensures the accuracy and reliability of the data is maintained.
+=> If there is any violation then the action is aborted.
+
+======================================================================================================================================================================
+Session : 6
+===========
+
+Distinct
+
+Order By
+
+LIMIT
+
+LIKE
+-----------
+show tables; => select * from students;
+
+Distinct statement: To avoid duplicate values.
+==================
+
+select loaction from students;
+
+select distinct location from students;
+
+select distinct student_company from students;
+
+select distinct source_of_joining from students;
+------------------------------------------------------------------------------------------------------------------------------------------------
+Order BY: It is used to get the data is sorted in ascending order.
+=========
+select * from students;
+
+select student_fname from students;
+
+select * from students order by years_of_exp;
+
+select student_fname from students order by student_fname;
+
+select student_fname from students order by years_of_exp; =>(The orderby which we are having need not to be a part of select statement)
+
+select student_fname, years_of_exp from students order by years_of_exp;
+
+select student_fname, years_of_exp, batch_date from students order by years_of_exp;
+
+select student_fname, years_of_exp from students order by years_of_exp desc; (We can give key word to sort it descending order)
+
+select student_fname, years_of_exp from students order by 2 desc;
+select student_fname, years_of_exp from students order by 1 desc;
+
+select student_fname, years_of_exp from students order by years_of_exp, student_fname;
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+LIMIT:
+======
+
+select student_id, enrollment_date, selected_course, student_fname, student_email, years_of_exp, student_company, batch_date, source_of_joining, location from students ORDER BY years_of_exp;
+
+Get 3 candidates with least experiance
+
+
+select student_id, enrollment_date, selected_course, student_fname, years_of_exp, student_company, batch_date, source_of_joining, location from students ORDER BY years_of_exp LIMIT 3;
+
+select student_id, enrollment_date, selected_course, student_fname, years_of_exp, student_company, batch_date, source_of_joining, location from students ORDER BY years_of_exp DESC LIMIT 3;
+
+
+want to know that from which sources last 5 candidates have enrolled.
+
+select source_of_joining from students order by enrollment_date DESC Limit 5;
+
+select student_id, enrollment_date, selected_course, student_fname, years_of_exp, student_company, batch_date, source_of_joining, location from students ORDER BY enrollment_date DESC LIMIT 1;
+
+select * from students order by enrollment_date LIMIT 0,3;
+
+
+select * from students order by enrollment_date LIMIT 3,2;
+----------------------------------------------------------------------------------------------------------------------------
+LIKE :
+======
+
+
+select student_id, enrollment_date, selected_course, student_fname, years_of_exp, student_company, batch_date, source_of_joining, location from students WHERE student_fname LIKE '%ra%';
+
+% is a wildcard character
+
+select student_id, enrollment_date, selected_course, student_fname, years_of_exp, student_company, batch_date, source_of_joining, location from students WHERE student_fname LIKE 'ra%';
+
+select student_id, enrollment_date, selected_course, student_fname, years_of_exp, student_company, batch_date, source_of_joining, location from students WHERE student_fname LIKE '%at';
+
+select student_id, enrollment_date, selected_course, student_fname, years_of_exp, student_company, batch_date, source_of_joining, location from students WHERE student_fname LIKE '_____';
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Session - 7
+===========
+SELECT DISTINCT source_of_joining from students ORDER BY enrollment_date desc;
+
+DISTINCT & ORDER BY
+
+SELECT source_of_joining FROM students;
+
+Order of Execution
+===================
+FROM (Loading the Table)
+
+SELECT (Projecting source_of_joining)
+
+SELECT source_of_joining,enrollment_date FROM students;
+
+Order of Execution
+===================
+FROM (Loading the Table)
+
+SELECT (Projecting source_of_joining, enrollment_date)
+
+SELECT source_of_joining,enrollment_date FROM students order by enrollment_date;
+
+Order of Execution
+===================
+FROM (Loading the Table)
+select * from students;
+
+SELECT (Projecting source_of_joining, enrollment_date)
+select source_of_joining, enrollment_date from students;
+
+Order by (based on enrollment_date it will order by)
+select source_of_joining, enrollment_date from students order by enrollment_date;
+
+SELECT source_of_joining FROM students order by enrollment_date;
+
+Order of Execution
+===================
+FROM (Loading the Table)
+select * from students;
+
+SELECT (Projecting source_of_joining, enrollment_date)
+select source_of_joining, enrollment_date from students;
+
+Order by (based on enrollment_date it will order by)
+select source_of_joining from students order by enrollment_date;
+
+
+SELECT source_of_joining FROM students order by enrollment_date;
+
+
+
+
+SELECT DISTINCT source_of_joining FROM students order by enrollment_date;
+
+Order of Execution
+===================
+FROM (Loading the Table)
+select * from students;
+
+SELECT (Projecting source_of_joining, enrollment_date)
+select source_of_joining, enrollment_date from students;
+
+DISTINCT
+select DISTINCT source_of_joining from students;
+select DISTINCT source_of_joining, enrollment_date from students;
+
+
+Order by (based on enrollment_date it will order by)
+select source_of_joining from students order by enrollment_date;
+======================================================================================================================================================================
+
+Session : 8
+===========
+COUNT:
+=====
+Aggregate functions 
+
+select count(*) from students;
+
+select count(student_company) from students;
+
+select student_company from students;
+
+select count(DISTINCT student_company) from students;
+
+select count(DISTINCT student_company) As num_companies from students;
+
+select count(DISTINCT source_of_joining) from students;
+
+select bacth_date from students;
+
+select count(*) from students where batch_date like '%-02-%';
+
+select count(*) from students where batch_date like '19-%';
+
+GROUP BY:
+========
+
+What I want is to know that how many people have joined my course got to know about me through 
+
+Linkedin - 5
+Google - 2 
+Quora - 1
+source_of_joining 
+
+
+(select source_of_joining;)
+
+select source_of_joining, count(*) from students GROUP BY source_of_joining;
+
+select location,count(*) from students group by location;
+
+--this will not work
+select location,count(*) from students group by source_of_joining;
+
+select location,source_of_joining from students;
+
+select location, source_of_joining, count(*) from students group by location, source_of_joining;
+
+select batch_date,selected_course from students;
+
+select batch_date,selected_course,count(*) from students group by batch_date, selected_course;
+
+MIN & MAX:
+===========
+
+select MIN(years_of_exp) from students;
+
+select MAX(years_of_exp) from students;
+
+---this won't work
+select MIN(years_of_exp),student_fname from students;
+---this will work
+select student_fname from students order by years_of_exp limit 1;
+
+--- each source of joining I want to get max experience 
+
+select source_of_joining, years_of_exp from students;
+
+select source_of_joining, MAX(years_of_exp) from students group by source_of_joining;
+
+SUM:
+====
+select source_of_joining, SUM(years_of_exp) from students group by source_of_joining;
+
+AVG:
+====
+select source_of_joining, AVG(years_of_exp) from students group by source_of_joining;
+
+select loaction, AVG(years_of_exp) from students group by location;
+
+select student_company, AVG(years_of_exp) from students group by student_company;
+
+GROUP BY: group by is like grouping things together as per the logic based on a category .
+=======
+we use this for applying aggregate functions .
+
+=================================================================================================================================================================
+
+Session: 9
+==========
+
+create table courses_new(
+course_id int NOT NULL,
+course_name varchar(30) NOT NULL,
+course_duration_months decimal(3,1) NOT NULL,
+course_fee int NOT NULL,
+PRIMARY KEY(course_id)
+);
+
+
+insert into courses_new values(1, 'bigdata', 6.5, 50000);
+
+insert into courses_new values(2, 'web development', 3.5, 20000);
+
+insert into courses_new values(3, 'data science', 6, 40000);
+
+-- update courses_new set course_fee = 40000 where course_id = 2;
+ 
+drop table courses_new;
+
+
+create table courses_new(
+course_id int NOT NULL,
+course_name varchar(30) NOT NULL,
+course_duration_months decimal(3,1) NOT NULL,
+course_fee int NOT NULL,
+changed_at TIMESTAMP DEFAULT NOW(),
+PRIMARY KEY(course_id)
+);
+
+insert into courses_new (course_id, course_name, course_duration_months, course_fee) values (1, 'bigdata', 6.5, 50000);
+
+insert into courses_new (course_id, course_name, course_duration_months, course_fee) values(2, 'web development', 3.5, 20000);
+
+insert into courses_new (course_id, course_name, course_duration_months, course_fee) values(3, 'data science', 6, 40000);
+
+insert into courses_new (course_id, course_name, course_duration_months, course_fee) values(4, 'devops', 10.5, 10000);
+
+-- update courses_new set course_fee=40000 where course_id=2;(TS not changes)
+drop table courses_new;
+
+create table courses_new(
+course_id int NOT NULL,
+course_name varchar(30) NOT NULL,
+course_duration_months decimal(3,1) NOT NULL,
+course_fee int NOT NULL,
+changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+PRIMARY KEY(course_id)
+);
+
+NOW 
+CURRENT_TIMESTAMP
+
+
+insert into courses_new (course_id, course_name, course_duration_months, course_fee) values (1, 'bigdata', 6.5, 50000);
+
+insert into courses_new (course_id, course_name, course_duration_months, course_fee) values(2, 'web development', 3.5, 20000);
+
+insert into courses_new (course_id, course_name, course_duration_months, course_fee) values(3, 'data science', 6, 40000);
+
+insert into courses_new (course_id, course_name, course_duration_months, course_fee) values(4, 'devops', 10.5, 10000);
+
+update courses_new set course_fee = 40000 where course_id=2;(TS changes)
+
+
+
+DECIMAL(5,3)
+TIMESTAMP 
+===============================================================================================================================================================
+Logical Operators:
+----------------
+Session: 10
+==========
+
+desc students;
+
+select * from student where location = 'banglore'
+
+// to get people who are not from banglore
+
+select * from student where location != 'banglore'
+
+select * from courses;
+
+// get all courses which has the word 'data'
+
+select * from courses where course_name like '%data%';
+
+// get all courses which do not have the word 'data'
+
+select * from courses where course_name not like '%data%';
+
+// all students from banglore who joined through linkedin and have less than 8 years of experiance
+
+select * from students where years_of_exp < 8 and source_of_joining = 'linkedin' and location='banglore';
+
+// I want all people who do not fall between 8 to 12 years of experience.
+
+select * from students where years_of_exp < 8 or years_of_exp > 12;
+
+select * from students where years_of_exp between 8 and 12;
+
+select * from students where years_of_exp not between 8 and 12;
+
+// get list of students who are working for flipkart, walmart or microsoft
+
+select * from students where student_company='flipkart' or student_company='walmart' or student_company='microsoft';
+
+select * from students where student_company in ('flipkart','walmart','microsoft');
+
+select * from students where student_company not in ('flipkart','walmart','microsoft');
+
+If a course is more than 4 months we categorize it as masters program else it is a dilpoma
+
+select course_id,course_name,course_fee,
+CASE
+WHEN course_duration_months > 4 THEN 'masters'
+ELSE 'diploma'
+END as course_type
+from courses;
+
+// people working for walmart, flipkart, microsoft we want to say product based and all other service based.
+
+select student_id, student_fname, student_lname, student_company,
+CASE
+WHEN student_company in ('flipkart','walmart','microsoft') THEN 'product based'
+ELSE 'service based'
+END as company_type
+FROM students;
+
+select student_id, student_fname, student_lname, student_company,
+CASE
+WHEN student_company in ('flipkart','walmart','microsoft') THEN 'product based'
+WHEN student_company is NULL THEN 'invalid company'
+ELSE 'service based'
+END as company_type
+FROM students;
+================================================================================================================================================================
+
+
+Session : 11
+============
+
+JOINS
+
+2 Tables
+----------
+Courses
+Students
+
+I want to know in which course rahul has enrolled.
+
+--select student_fname,selected_course from students;
+
+students table
+==============
+student_fname, selected_course
+rahul,1
+
+courses
+=======
+course_id,course_name
+1,big data
+
+select course_name from courses where course_id = (select selected_course from students where student_fname='rahul');
+
+joining-----
+
+in students table selected_course
+in courses table course_id
+
+join query:
+----------
+select students.student_fname,students.student_lname,courses.course_name from students join courses on students.selected_course = courses.course_id;
+
+by default it is a inner join..(only the matching records are considered. non matching records are discarded)
+
+Left outer join:
+===============
+
+All the matching records from left and right table are considered
++
+All the non matching records in the left table which does not have the match in the right padded with null...
+
+create table students_latest as select * from students;
+
+create table courses_latest as select * from courses;
+
+select * from courses latest;
+
+delete from courses_latest where course_id=2;
+
+select students_latest.student_fname,students_latest.student_lname,courses_latest.course_name from students_latest join courses_latest on students_latest.selected_course = courses_latest.course_id;
+
+
+select students_latest.student_fname,students_latest.student_lname,courses_latest.course_name from students_latest left join courses_latest on students_latest.selected_course = courses_latest.course_id;
+
+Right Outer Join:
+===============
+
+All the matching records from left and right table are considered
++
+All the non matching records in the right table which does not have the match in the left padded with null...
+
+select students_latest.student_fname,students_latest.student_lname,courses_latest.course_name from students_latest right join courses_latest on students_latest.selected_course = courses_latest.course_id;
+
+Full Outer Join:
+===============
+
+All the matching records
++
+non matching records from left
++
+non matching records from right 
+
+It is combination of left inner join and right outer join
+
+select students_latest.student_fname,students_latest.student_lname,courses_latest.course_name from students_latest left join courses_latest on students_latest.selected_course = courses_latest.course_id;
+Union
+select students_latest.student_fname,students_latest.student_lname,courses_latest.course_name from students_latest right join courses_latest on students_latest.selected_course = courses_latest.course_id;
+
+covered in this session: Inner , Left outer, Right outer , full outer ,cross join 
+
+cross join:
+==========
+
+select count (*) from students;
+
+select count (*) from courses;
+
+select count (*) from students,courses;
+
+select * from students join courses;
+===============================================================================================================================================================
+
+Session : 13
+============
+
+Where vs Having clause in SQL
+=============================
+
+select source_of_joining,count(*) as total from students group by source_of_joining;
+
+I want to know the lead sources through with more than 1 person has registered.
+
+
+--select source_of_joining,count(*) as total from students group by source_of_joining where total > 1;
+
+==where clause is used to filter the individual records before aggregation..
+
+select source_of_joining,count(*) as total from students group by source_of_joining having total > 1;
+
+== Having clause is used to filter  after aggregation..
+
+// I want to know the count of people who registered through linkedin
+
+select source_of_joining,count(*) as total from students group by source_of_joining having source_of_joining = 'linkedin';
+
+select source_of_joining,count(*) as total from students where source_of_joining = 'linkedin' group by source_of_joining;
+
+can we use where and having in same query
+========================================
+
+// the locations from which more than 1 student has joined & the students experience is more than 10 years
+
+select location,count(*) as total from students where years_of_ecp > 10 group by location having total > 1;
+
+where is used before group by and do filtering on individual records 
+
+having is used after group by and do filtering on aggregated records.
+
+we can use where and having in the same query also.
+
+where is more performant than having..
